@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "past-crafter",
+	"version": "${version}",
+	"name": "Past Crafter",
+	"description": "Craft blocks & items from old minecraft!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://xplate.dev/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/past-crafter/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"fn10.pastcrafter.PastCrafter"
+		],
+		"client": [
+			"fn10.pastcrafter.PastCrafterClient"
+		],
+		"fabric-datagen": [
+			"fn10.pastcrafter.PastCrafterDataGenerator"
+		]
+	},
+	"mixins": [
+		"past-crafter.mixins.json",
+		{
+			"config": "past-crafter.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
