@@ -2,23 +2,28 @@ package fn10.pastcrafter;
 
 import net.fabricmc.api.ModInitializer;
 
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import fn10.pastcrafter.reg.PastBlocks;
+
 public class PastCrafter implements ModInitializer {
 	public static final String MOD_ID = "past-crafter";
+	public static final int version = 0;
+	private static final Map<Integer, String> versionStrings = Map.of(0, "a1.0");
 
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
+	public static String getVersionString() {
+		return versionStrings.getOrDefault(version, "Unknown");
+	}
+
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		LOGGER.info("Initializing Past Crafter version " + version);
 
-		LOGGER.info("Hello Fabric world!");
+		PastBlocks.init();
 	}
 }
